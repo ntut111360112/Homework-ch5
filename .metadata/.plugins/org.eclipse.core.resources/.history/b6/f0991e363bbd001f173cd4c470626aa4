@@ -1,0 +1,43 @@
+package classification;
+import java.awt.*;
+import java.awt.event.*;
+
+public class javaapplet extends Frame implements ActionListener {
+    private Button button;
+    private Label label;
+
+    public AwtExample() {
+        // 設定視窗屬性
+        setTitle("AWT Example");
+        setSize(300, 200);
+        setLayout(new FlowLayout());
+
+        // 建立元件
+        button = new Button("Click Me");
+        label = new Label("Hello, Java AWT!");
+
+        // 加入按鈕事件監聽
+        button.addActionListener(this);
+
+        // 將元件加入視窗
+        add(label);
+        add(button);
+
+        // 設定關閉視窗的行為
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                System.exit(0);
+            }
+        });
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        label.setText("Button Clicked!");
+    }
+
+    public static void main(String[] args) {
+        AwtExample frame = new AwtExample();
+        frame.setVisible(true);
+    }
+}

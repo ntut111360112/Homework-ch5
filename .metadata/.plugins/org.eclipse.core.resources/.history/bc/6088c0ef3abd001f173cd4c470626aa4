@@ -1,0 +1,42 @@
+package classification;
+import java.applet.Applet;
+import java.awt.*;
+public class javaapplet extends Applet {
+    private String message;
+
+    @Override
+    public void init() {
+        // 初始化 Applet，設定訊息
+        message = "Hello, Java Applet!";
+        setBackground(Color.CYAN); // 設定背景顏色
+    }
+
+    @Override
+    public void start() {
+        // Applet 啟動時執行
+        message += " Applet started.";
+    }
+
+    @Override
+    public void paint(Graphics g) {
+        // 繪製 Applet 的內容
+        g.setColor(Color.BLUE);
+        g.drawString(message, 50, 50); // 在畫布上繪製文字
+        g.setColor(Color.RED);
+        g.fillRect(50, 70, 100, 50); // 繪製紅色矩形
+        g.setColor(Color.YELLOW);
+        g.fillOval(50, 140, 100, 50); // 繪製黃色橢圓形
+    }
+
+    @Override
+    public void stop() {
+        // Applet 停止時執行
+        System.out.println("Applet stopped.");
+    }
+
+    @Override
+    public void destroy() {
+        // Applet 銷毀時執行
+        System.out.println("Applet destroyed.");
+    }
+}
